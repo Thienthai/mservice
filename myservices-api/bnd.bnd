@@ -1,0 +1,10 @@
+Bundle-Name: myservices-api
+Bundle-SymbolicName: com.sevice.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.sevice.exception,\
+	com.sevice.model,\
+	com.sevice.service,\
+	com.sevice.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../myservices-service/service.xml

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.sevice.model.Guestbook">
+		<field name="myId" type="long" />
+		<field name="name" type="String" />
+		<field name="myDate" type="String" />
+		<field name="message" type="String" />
+	</model>
+</model-hints>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_2_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.sevice">
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <namespace>Gb</namespace>
+    <entity name="Guestbook" local-service="true" remote-service="false" table="guest_books">
+        <column name="myId" type="long" primary="true"></column>
+        <column name="name" type="String"></column>
+        <column name="myDate" type="String"></column>
+        <column name="message" type="String"></column>
+    </entity>
+</service-builder>
