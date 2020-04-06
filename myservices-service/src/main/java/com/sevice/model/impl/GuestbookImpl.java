@@ -15,7 +15,7 @@
 package com.sevice.model.impl;
 
 /**
- * The extended model implementation for the Guestbook service. Represents a row in the &quot;guest_books&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the Guestbook service. Represents a row in the &quot;guest_books2&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
  * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.sevice.model.Guestbook</code> interface.

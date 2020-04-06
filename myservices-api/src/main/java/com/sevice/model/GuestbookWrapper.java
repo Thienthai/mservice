@@ -46,6 +46,7 @@ public class GuestbookWrapper
 		attributes.put("myDate", getMyDate());
 		attributes.put("message", getMessage());
 		attributes.put("createdId", getCreatedId());
+		attributes.put("imageUrl", getImageUrl());
 
 		return attributes;
 	}
@@ -81,6 +82,12 @@ public class GuestbookWrapper
 		if (createdId != null) {
 			setCreatedId(createdId);
 		}
+
+		String imageUrl = (String)attributes.get("imageUrl");
+
+		if (imageUrl != null) {
+			setImageUrl(imageUrl);
+		}
 	}
 
 	/**
@@ -91,6 +98,16 @@ public class GuestbookWrapper
 	@Override
 	public long getCreatedId() {
 		return model.getCreatedId();
+	}
+
+	/**
+	 * Returns the image url of this guestbook.
+	 *
+	 * @return the image url of this guestbook
+	 */
+	@Override
+	public String getImageUrl() {
+		return model.getImageUrl();
 	}
 
 	/**
@@ -156,6 +173,16 @@ public class GuestbookWrapper
 	@Override
 	public void setCreatedId(long createdId) {
 		model.setCreatedId(createdId);
+	}
+
+	/**
+	 * Sets the image url of this guestbook.
+	 *
+	 * @param imageUrl the image url of this guestbook
+	 */
+	@Override
+	public void setImageUrl(String imageUrl) {
+		model.setImageUrl(imageUrl);
 	}
 
 	/**

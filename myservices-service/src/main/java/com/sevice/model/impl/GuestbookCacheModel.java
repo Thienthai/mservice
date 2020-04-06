@@ -60,7 +60,7 @@ public class GuestbookCacheModel
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(11);
+		StringBundler sb = new StringBundler(13);
 
 		sb.append("{myId=");
 		sb.append(myId);
@@ -72,6 +72,8 @@ public class GuestbookCacheModel
 		sb.append(message);
 		sb.append(", createdId=");
 		sb.append(createdId);
+		sb.append(", imageUrl=");
+		sb.append(imageUrl);
 		sb.append("}");
 
 		return sb.toString();
@@ -106,6 +108,13 @@ public class GuestbookCacheModel
 
 		guestbookImpl.setCreatedId(createdId);
 
+		if (imageUrl == null) {
+			guestbookImpl.setImageUrl("");
+		}
+		else {
+			guestbookImpl.setImageUrl(imageUrl);
+		}
+
 		guestbookImpl.resetOriginalValues();
 
 		return guestbookImpl;
@@ -119,6 +128,7 @@ public class GuestbookCacheModel
 		message = objectInput.readUTF();
 
 		createdId = objectInput.readLong();
+		imageUrl = objectInput.readUTF();
 	}
 
 	@Override
@@ -147,6 +157,13 @@ public class GuestbookCacheModel
 		}
 
 		objectOutput.writeLong(createdId);
+
+		if (imageUrl == null) {
+			objectOutput.writeUTF("");
+		}
+		else {
+			objectOutput.writeUTF(imageUrl);
+		}
 	}
 
 	public long myId;
@@ -154,5 +171,6 @@ public class GuestbookCacheModel
 	public String myDate;
 	public String message;
 	public long createdId;
+	public String imageUrl;
 
 }

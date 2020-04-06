@@ -10,5 +10,6 @@
         <column name="myDate" type="String"></column>
         <column name="message" type="String"></column>
         <column name="createdId" type="long"></column>
+        <column name="imageUrl" type="String"></column>
     </entity>
 </service-builder>

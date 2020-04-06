@@ -65,7 +65,7 @@ public class GuestbookModelImpl
 	public static final Object[][] TABLE_COLUMNS = {
 		{"myId", Types.BIGINT}, {"name", Types.VARCHAR},
 		{"myDate", Types.VARCHAR}, {"message", Types.VARCHAR},
-		{"createdId", Types.BIGINT}
+		{"createdId", Types.BIGINT}, {"imageUrl", Types.VARCHAR}
 	};
 
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP =
@@ -77,10 +77,11 @@ public class GuestbookModelImpl
 		TABLE_COLUMNS_MAP.put("myDate", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("message", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createdId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("imageUrl", Types.VARCHAR);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table guest_books2 (myId LONG not null primary key,name VARCHAR(75) null,myDate VARCHAR(75) null,message VARCHAR(75) null,createdId LONG)";
+		"create table guest_books2 (myId LONG not null primary key,name VARCHAR(75) null,myDate VARCHAR(75) null,message VARCHAR(75) null,createdId LONG,imageUrl VARCHAR(75) null)";
 
 	public static final String TABLE_SQL_DROP = "drop table guest_books2";
 
@@ -243,6 +244,9 @@ public class GuestbookModelImpl
 		attributeGetterFunctions.put("createdId", Guestbook::getCreatedId);
 		attributeSetterBiConsumers.put(
 			"createdId", (BiConsumer<Guestbook, Long>)Guestbook::setCreatedId);
+		attributeGetterFunctions.put("imageUrl", Guestbook::getImageUrl);
+		attributeSetterBiConsumers.put(
+			"imageUrl", (BiConsumer<Guestbook, String>)Guestbook::setImageUrl);
 
 		_attributeGetterFunctions = Collections.unmodifiableMap(
 			attributeGetterFunctions);
@@ -316,6 +320,21 @@ public class GuestbookModelImpl
 	}
 
 	@Override
+	public String getImageUrl() {
+		if (_imageUrl == null) {
+			return "";
+		}
+		else {
+			return _imageUrl;
+		}
+	}
+
+	@Override
+	public void setImageUrl(String imageUrl) {
+		_imageUrl = imageUrl;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(
 			0, Guestbook.class.getName(), getPrimaryKey());
@@ -352,6 +371,7 @@ public class GuestbookModelImpl
 		guestbookImpl.setMyDate(getMyDate());
 		guestbookImpl.setMessage(getMessage());
 		guestbookImpl.setCreatedId(getCreatedId());
+		guestbookImpl.setImageUrl(getImageUrl());
 
 		guestbookImpl.resetOriginalValues();
 
@@ -446,6 +466,14 @@ public class GuestbookModelImpl
 
 		guestbookCacheModel.createdId = getCreatedId();
 
+		guestbookCacheModel.imageUrl = getImageUrl();
+
+		String imageUrl = guestbookCacheModel.imageUrl;
+
+		if ((imageUrl != null) && (imageUrl.length() == 0)) {
+			guestbookCacheModel.imageUrl = null;
+		}
+
 		return guestbookCacheModel;
 	}
 
@@ -527,6 +555,7 @@ public class GuestbookModelImpl
 	private String _myDate;
 	private String _message;
 	private long _createdId;
+	private String _imageUrl;
 	private Guestbook _escapedModel;
 
 }

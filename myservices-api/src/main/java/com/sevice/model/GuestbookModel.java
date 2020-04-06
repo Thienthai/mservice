@@ -126,4 +126,19 @@ public interface GuestbookModel extends BaseModel<Guestbook> {
 	 */
 	public void setCreatedId(long createdId);
 
+	/**
+	 * Returns the image url of this guestbook.
+	 *
+	 * @return the image url of this guestbook
+	 */
+	@AutoEscape
+	public String getImageUrl();
+
+	/**
+	 * Sets the image url of this guestbook.
+	 *
+	 * @param imageUrl the image url of this guestbook
+	 */
+	public void setImageUrl(String imageUrl);
+
 }
