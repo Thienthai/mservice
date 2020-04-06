@@ -3,12 +3,13 @@
 
 <hibernate-mapping auto-import="false" default-lazy="false">
 	<import class="com.sevice.model.Guestbook" />
-	<class name="com.sevice.model.impl.GuestbookImpl" table="guest_books">
+	<class name="com.sevice.model.impl.GuestbookImpl" table="guest_books2">
 		<id access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="myId" type="long">
 			<generator class="assigned" />
 		</id>
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="myDate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="message" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.LiferayPropertyAccessor" name="createdId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
 </hibernate-mapping>

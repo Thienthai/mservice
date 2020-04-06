@@ -34,6 +34,7 @@ public class GuestbookSoap implements Serializable {
 		soapModel.setName(model.getName());
 		soapModel.setMyDate(model.getMyDate());
 		soapModel.setMessage(model.getMessage());
+		soapModel.setCreatedId(model.getCreatedId());
 
 		return soapModel;
 	}
@@ -119,9 +120,18 @@ public class GuestbookSoap implements Serializable {
 		_message = message;
 	}
 
+	public long getCreatedId() {
+		return _createdId;
+	}
+
+	public void setCreatedId(long createdId) {
+		_createdId = createdId;
+	}
+
 	private long _myId;
 	private String _name;
 	private String _myDate;
 	private String _message;
+	private long _createdId;
 
 }

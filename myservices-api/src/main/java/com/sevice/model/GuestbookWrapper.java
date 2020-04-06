@@ -45,6 +45,7 @@ public class GuestbookWrapper
 		attributes.put("name", getName());
 		attributes.put("myDate", getMyDate());
 		attributes.put("message", getMessage());
+		attributes.put("createdId", getCreatedId());
 
 		return attributes;
 	}
@@ -74,6 +75,22 @@ public class GuestbookWrapper
 		if (message != null) {
 			setMessage(message);
 		}
+
+		Long createdId = (Long)attributes.get("createdId");
+
+		if (createdId != null) {
+			setCreatedId(createdId);
+		}
+	}
+
+	/**
+	 * Returns the created ID of this guestbook.
+	 *
+	 * @return the created ID of this guestbook
+	 */
+	@Override
+	public long getCreatedId() {
+		return model.getCreatedId();
 	}
 
 	/**
@@ -129,6 +146,16 @@ public class GuestbookWrapper
 	@Override
 	public void persist() {
 		model.persist();
+	}
+
+	/**
+	 * Sets the created ID of this guestbook.
+	 *
+	 * @param createdId the created ID of this guestbook
+	 */
+	@Override
+	public void setCreatedId(long createdId) {
+		model.setCreatedId(createdId);
 	}
 
 	/**

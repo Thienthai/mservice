@@ -6,5 +6,6 @@
 		<field name="name" type="String" />
 		<field name="myDate" type="String" />
 		<field name="message" type="String" />
+		<field name="createdId" type="long" />
 	</model>
 </model-hints>
